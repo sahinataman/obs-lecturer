@@ -1,1 +1,2 @@
-# obs-lecturer
+# obs-template
+OBS HTML Template
