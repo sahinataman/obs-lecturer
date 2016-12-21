@@ -5,21 +5,15 @@
 
 	$user_token = $_SESSION["key"];
 	$userName = $_SESSION["userName"];
-	$user_id = $_POST["user_id"]; 
 	
-	$user_url = "http://127.0.0.1:8000/users/".$user_id."/?format=json";
+	$url = "http://127.0.0.1:8000/rest-auth/password/change/?format=json";
 	
-	$old_password=$_POST["$old_password"];
-	$new_password=$_POST["$new_password1"];
+	$new_password1=$_POST["new_password1"];
+	$new_password2=$_POST["new_password2"];
 	
-	$jsonUser["id"] = $user_id;
-	$jsonUser["username"] = $userName;
-	$jsonUser["password"] = $new_password;
-    $jsonUser["email"] = $email;  
+	$jsonUser["new_password1"] = $new_password1;
+	$jsonUser["new_password2"] = $new_password2;
 	
-	//$userResponse = requestApi($user_token,$user_url,$jsonUser,"put");
-	
-	//echo $old_password ." ". .$new_password
-	print_r($userResponse);
+	$response = requestApi($user_token,$url,$jsonUser,"post");
 	 
 ?>
